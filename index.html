@@ -1,414 +1,539 @@
 <!doctype html>
 <html lang="ro">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Coffee Garden — Meniu</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Coffee Garden</title>
+  <meta name="description" content="Panini da Arthuro — Panini proaspete, ingrediente locale și gust autentic.">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --accent: #64794f;
+      --muted: #555;
+      --card: #F3E3CE;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: black;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+      text-align: center;
+      font-weight: normal;
+    }
+
+    header {
+      background: linear-gradient(90deg, #fff, #F3E3CE, #fff);
+      padding: 20px;
+      color: white;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      text-align: center;
+      flex-wrap: wrap;
+    }
+
+    .brand img {
+      width: 175px;
+      height: 150px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 2px solid white;
+      flex-shrink: 0;
+    }
+
+    h1 { margin: 0; font-size: 30px; color: #64794f; }
+    p.lead { margin: 4px 0; color: #000000; }
+
+    nav {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    nav a {
+      color: #000000;
+      text-decoration: none;
+    }
+
+    nav a:hover { text-decoration: underline; }
+
+    main { padding: 20px 0; }
+
+    .menu-section {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .menu-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+    }
+
+    .menu-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid #eee;
+    }
+
+    .menu-card-content { padding: 12px 14px; }
+
+    .price { color: #000; }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn:hover { background: #64794f; }
+
+    footer {
+      border-top: 1px solid #eee;
+      padding: 20px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 22px;
+      cursor: pointer;
+      display: none;
+    }
+  
+/* Titluri mari și denumiri panini & băuturi în verde */
+.menu-section h2,
+h2 {
+  color: #64794f !important;
+  font-weight: bold;
+}
+
+.menu-card h3,
+h3 {
+  color: #64794f !important;
+  font-weight: bold;
+}
+
+/* Prețurile rămân negre */
+.price {
+  color: black !important;
+  font-weight: bold;
+}
+
+
+
+
+</style>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="#top">
-        <img src="images/logocoffeegarden.jpg" alt="Coffee Garden" />
-        <span>Coffee Garden</span>
-      </a>
-      <nav class="main-nav" aria-label="Meniul principal">
-        <a href="#menu">Meniu</a>
-        <a href="#desert">Desert</a>
-        <a href="#bauturi">Băuturi</a>
-        <a href="#produse">Produse italiene</a>
-        <a href="#locatie">Locație</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <button id="mobile-menu-btn" aria-expanded="false">☰</button>
+  
+
+ <header>
+    <div class="container">
+      <div class="brand">
+        <img src="images/logocoffeegarden.jpg" alt="Coffee Garden - logo">
+        <div>
+          <h1>Coffee Garden</h1>
+          <p class="lead">Cafea de calitate si un gust autentic.</p>
+        </div>
+      </div>
     </div>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container">
-        <h1>Panini proaspete, ingrediente italiene și gust autentic</h1>
-        <p>Vezi meniul nostru — preparate calde, deserturi și băuturi.</p>
-        <a class="cta" href="#menu">Vezi Meniul</a>
-      </div>
-    </section>
 
-    <!-- FILTER + MENU -->
-    <section id="menu" class="section container">
+    <nav>
+            <a href="#meniu">Meniu</a>
+            <a href="#deserturi">Desert</a>
+            <a href="#bauturi">Băuturi</a>
+            <a href="#produse-italiene">Produse-Italiene</a>
+            <a href="#alte-produse">Alte-Produse</a>
+            <a href="#locatie">Locație</a>
+            <a href="#contact">Contact</a>
+            <a href="#recenzii">Feedback</a>
+    </nav>
+
+
+  <main class="container">
+    
+   
+
+    <!-- ================= MENIU ================= -->
+    <section id="meniu" class="menu-section">
       <h2>Meniul nostru</h2>
-      <div class="filters">
-        <button data-filter="all" class="active">Toate</button>
-        <button data-filter="panini">Panini</button>
-        <button data-filter="desert">Desert</button>
-        <button data-filter="bauturi">Băuturi</button>
-      </div>
 
-      <div id="items" class="grid">
-        <!-- Exemplu card produs -->
-        <article class="card" data-category="panini">
-          <div class="card-media">
-            <img src="images/photo1.jpg" alt="photo1">
-          </div>
-          <div class="card-body">
+      <div class="menu-grid">
+        <div class="menu-card">
+          <img src="images/photo1.jpg" alt="Panini Parma">
+          <div class="menu-card-content">
             <h3>Panini Parma</h3>
-            <p>Prosciutto Crudo, cremă de brânză, sos pesto, măsline fantasia.</p>
-            <div class="card-meta">
-              <span class="price">90 Lei</span>
-              <button class="btn-lightbox" data-img="images/panini-parma.jpg">🔍</button>
-            </div>
+            <p>Prosciutto Crudo, cremă de brânză, sos pesto, măsline fantazia.</p>
+            <p class="price">90 Lei</p>
           </div>
-        </article>
-
-         <article class="card" data-category="panini">
-          <div class="card-media">
-            <img src="images/photo2.jpg" alt="Panini Parma">
-          </div>
-          <div class="card-body">
-            <h3>Panini Parma</h3>
-            <p>Prosciutto Crudo, cremă de brânză, sos pesto, măsline fantasia.</p>
-            <div class="card-meta">
-              <span class="price">90 Lei</span>
-              <button class="btn-lightbox" data-img="images/panini-parma.jpg">🔍</button>
-            </div>
-          </div>
-        </article>
-
-         <article class="card" data-category="panini">
-          <div class="card-media">
-            <img src="images/photo3.jpg" alt="Panini Parma">
-          </div>
-          <div class="card-body">
-            <h3>Panini Parma</h3>
-            <p>Prosciutto Crudo, cremă de brânză, sos pesto, măsline fantasia.</p>
-            <div class="card-meta">
-              <span class="price">90 Lei</span>
-              <button class="btn-lightbox" data-img="images/panini-parma.jpg">🔍</button>
-            </div>
-          </div>
-        </article>
-
-         <article class="card" data-category="panini">
-          <div class="card-media">
-            <img src="images/photo4.jpg" alt="Panini Parma">
-          </div>
-          <div class="card-body">
-            <h3>Panini Parma</h3>
-            <p>Prosciutto Crudo, cremă de brânză, sos pesto, măsline fantasia.</p>
-            <div class="card-meta">
-              <span class="price">90 Lei</span>
-              <button class="btn-lightbox" data-img="images/panini-parma.jpg">🔍</button>
-            </div>
-          </div>
-        </article>
-
-         <article class="card" data-category="panini">
-          <div class="card-media">
-            <img src="images/photo5.jpg" alt="Panini Parma">
-          </div>
-          <div class="card-body">
-            <h3>Panini Parma</h3>
-            <p>Prosciutto Crudo, cremă de brânză, sos pesto, măsline fantasia.</p>
-            <div class="card-meta">
-              <span class="price">90 Lei</span>
-              <button class="btn-lightbox" data-img="images/panini-parma.jpg">🔍</button>
-            </div>
-          </div>
-        </article>
-
-         <article class="card" data-category="panini">
-          <div class="card-media">
-            <img src="images/photo6.jpg" alt="Panini Parma">
-          </div>
-          <div class="card-body">
-            <h3>Panini Parma</h3>
-            <p>Prosciutto Crudo, cremă de brânză, sos pesto, măsline fantasia.</p>
-            <div class="card-meta">
-              <span class="price">90 Lei</span>
-              <button class="btn-lightbox" data-img="images/panini-parma.jpg">🔍</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="card" data-category="panini">
-          <div class="card-media">
-            <img src="images/photo7.jpg" alt="Panini Parma">
-          </div>
-          <div class="card-body">
-            <h3>Panini Parma</h3>
-            <p>Prosciutto Crudo, cremă de brânză, sos pesto, măsline fantasia.</p>
-            <div class="card-meta">
-              <span class="price">90 Lei</span>
-              <button class="btn-lightbox" data-img="images/panini-parma.jpg">🔍</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="card" data-category="panini">
-          <div class="card-media">
-            <img src="images/photo6.jpg" alt="Panini Parma">
-          </div>
-          <div class="card-body">
-            <h3>Panini Parma</h3>
-            <p>Prosciutto Crudo, cremă de brânză, sos pesto, măsline fantasia.</p>
-            <div class="card-meta">
-              <span class="price">90 Lei</span>
-              <button class="btn-lightbox" data-img="images/panini-parma.jpg">🔍</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- După același model adaugi produsele (Panini Milano, Toscana, etc.) -->
-        <!-- Copiază din site-ul original conținutul pentru titluri/prețuri/descrieri. :contentReference[oaicite:1]{index=1} -->
-      </div>
-    </section>
-
-    <section id="desert" class="section container">
-      <h2>Deserturi</h2>
-      <div class="grid small-grid">
-        <!-- Carduri desert -->
-        <article class="card" data-category="desert">
-          <img src="images/tiramisu.jpg" alt="Tiramisu">
-          <div class="card-body">
-            <h3>Tiramisu Pahar</h3>
-            <p>55 Lei</p>
-          </div>
-        </article>
-
-        <article class="card" data-category="desert">
-          <img src="images/tiramisu.jpg" alt="Tiramisu">
-          <div class="card-body">
-            <h3>Tiramisu Pahar</h3>
-            <p>55 Lei</p>
-          </div>
-        </article>
-
-        <article class="card" data-category="desert">
-          <img src="images/tiramisu.jpg" alt="Tiramisu">
-          <div class="card-body">
-            <h3>Tiramisu Pahar</h3>
-            <p>55 Lei</p>
-          </div>
-        </article>
-
-        <article class="card" data-category="desert">
-          <img src="images/tiramisu.jpg" alt="Tiramisu">
-          <div class="card-body">
-            <h3>Tiramisu Pahar</h3>
-            <p>55 Lei</p>
-          </div>
-        </article>
-
-        <article class="card" data-category="desert">
-          <img src="images/tiramisu.jpg" alt="Tiramisu">
-          <div class="card-body">
-            <h3>Tiramisu Pahar</h3>
-            <p>55 Lei</p>
-          </div>
-        </article>
-
-        <article class="card" data-category="desert">
-          <img src="images/tiramisu.jpg" alt="Tiramisu">
-          <div class="card-body">
-            <h3>Tiramisu Pahar</h3>
-            <p>55 Lei</p>
-          </div>
-        </article>
-
-        <article class="card" data-category="desert">
-          <img src="images/tiramisu.jpg" alt="Tiramisu">
-          <div class="card-body">
-            <h3>Tiramisu Pahar</h3>
-            <p>55 Lei</p>
-          </div>
-        </article>
-
-        <article class="card" data-category="desert">
-          <img src="images/tiramisu.jpg" alt="Tiramisu">
-          <div class="card-body">
-            <h3>Tiramisu Pahar</h3>
-            <p>55 Lei</p>
-          </div>
-        </article>
-
-        <article class="card" data-category="desert">
-          <img src="images/tiramisu.jpg" alt="Tiramisu">
-          <div class="card-body">
-            <h3>Tiramisu Pahar</h3>
-            <p>55 Lei</p>
-          </div>
-        </article>
-
-        <article class="card" data-category="desert">
-          <img src="images/tiramisu.jpg" alt="Tiramisu">
-          <div class="card-body">
-            <h3>Tiramisu Pahar</h3>
-            <p>55 Lei</p>
-          </div>
-        </article>
-
-        <article class="card" data-category="desert">
-          <img src="images/tiramisu.jpg" alt="Tiramisu">
-          <div class="card-body">
-            <h3>Tiramisu Pahar</h3>
-            <p>55 Lei</p>
-          </div>
-        </article>
-
-        <article class="card" data-category="desert">
-          <img src="images/tiramisu.jpg" alt="Tiramisu">
-          <div class="card-body">
-            <h3>Tiramisu Pahar</h3>
-            <p>55 Lei</p>
-          </div>
-        </article>
-        <!-- restul deserturilor -->
-      </div>
-    </section>
-
-    <section id="bauturi" class="section container">
-      <h2>Băuturi</h2>
-      <div class="grid small-grid">
-        <!-- Ex: Espresso, Cappuccino -->
-         <article class="card" data-category="bauturi">
-          <div class="card-body">
-            <h3>Coca Cola</h3>
-            <p>55 Lei</p>
-          </div>
-        </article>
-
-        <article class="card" data-category="bauturi">
-          <div class="card-body">
-            <h3>Coca Cola</h3>
-            <p>55 Lei</p>
-          </div>
-        </article>
-
-        <article class="card" data-category="bauturi">
-          <div class="card-body">
-            <h3>Coca Cola</h3>
-            <p>55 Lei</p>
-          </div>
-        </article>
-
-        <article class="card" data-category="bauturi">
-          <div class="card-body">
-            <h3>Coca Cola</h3>
-            <p>55 Lei</p>
-          </div>
-        </article>
-
-        <article class="card" data-category="bauturi">
-          <div class="card-body">
-            <h3>Coca Cola</h3>
-            <p>55 Lei</p>
-          </div>
-        </article>
-
-        <article class="card" data-category="bauturi">
-          <div class="card-body">
-            <h3>Coca Cola</h3>
-            <p>55 Lei</p>
-          </div>
-        </article>
-
-        <article class="card" data-category="bauturi">
-          <div class="card-body">
-            <h3>Coca Cola</h3>
-            <p>55 Lei</p>
-          </div>
-        </article>
-
-        <article class="card" data-category="bauturi">
-          <div class="card-body">
-            <h3>Coca Cola</h3>
-            <p>55 Lei</p>
-          </div>
-        </article>
-
-        <article class="card" data-category="bauturi">
-          <div class="card-body">
-            <h3>Coca Cola</h3>
-            <p>55 Lei</p>
-          </div>
-        </article>
-
-        <article class="card" data-category="bauturi">
-          <div class="card-body">
-            <h3>Coca Cola</h3>
-            <p>55 Lei</p>
-          </div>
-        </article>
-
-        <article class="card" data-category="bauturi">
-          <div class="card-body">
-            <h3>Coca Cola</h3>
-            <p>55 Lei</p>
-          </div>
-        </article>
-
-        <article class="card" data-category="bauturi">
-          <div class="card-body">
-            <h3>Coca Cola</h3>
-            <p>55 Lei</p>
-          </div>
-        </article>
-
-
-
-      </div>
-    </section>
-
-    <section id="produse" class="section container">
-      <h2>Produse italiene</h2>
-      <p>Mezeluri și brânzeturi — preț per 100g</p>
-      <div class="grid products-grid">
-        <!-- Lista de produse italiene (prosciutto, bresaola etc.) -->
-      </div>
-    </section>
-
-    <section id="locatie" class="section container">
-      <h2>Locație</h2>
-      <div class="row">
-        <div class="margin:12px 0;">
-          <!-- Înlocuiește src cu iframe Google Maps al locației tale -->
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2223.428058606484!2d28.77090171532653!3d46.94498190000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97f0035ca3ad5%3A0x9b4ac11823aefc2d!2sCoffee%20Garden!5e0!3m2!1sro!2smd!4v1700XXXXXXXXX!5m2!1sro!2smd"
-            width="200%" height="320" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"></iframe>
         </div>
+
+        <div class="menu-card">
+          <img src="images/photo2.jpg" alt="Panini Bologna">
+          <div class="menu-card-content">
+            <h3>Panini Bologna</h3>
+            <p>Mortadella, sos pesto, stracciatella, roșii uscate în ulei.</p>
+            <p class="price">90 Lei</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="images/photo3.jpg" alt="Panini Milano">
+          <div class="menu-card-content">
+            <h3>Panini Milano</h3>
+            <p>Salam Milano, sos pesto, cremă de brânză, mozzarella.</p>
+            <p class="price">90 Lei</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="images/photo4.jpg" alt="Panini Toscana">
+          <div class="menu-card-content">
+            <h3>Panini Toscana</h3>
+            <p>Salam Toscana, stracciatella, rucola, scamorza afumată.</p>
+            <p class="price">90 Lei</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="images/photo5.jpg" alt="Panini Arthuro">
+          <div class="menu-card-content">
+            <h3>Panini Arthuro</h3>
+            <p>Roast beef, sos tonne, castraveți murați, cașcaval topit.</p>
+            <p class="price">130 Lei</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="images/photo6.jpg" alt="Panini Hîncești">
+          <div class="menu-card-content">
+            <h3>Panini Hîncești</h3>
+            <p>Prosciutto cotto, mozzarella, măsline, pesto.</p>
+            <p class="price">90 Lei</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="images/photo7.jpg" alt="Panini Modena">
+          <div class="menu-card-content">
+            <h3>Panini Modena</h3>
+            <p>Cicioli Montanari, mozzarella, roșii în ulei, piper negru.</p>
+            <p class="price">90 Lei</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="images/photo1.jpg" alt="Panini Roma">
+          <div class="menu-card-content">
+            <h3>Panini Roma</h3>
+            <p>Prosciutto cotto, stracciatella, anghinare, rucola.</p>
+            <p class="price">90 Lei</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="images/photo2.jpg" alt="Panini Bambino">
+          <div class="menu-card-content">
+            <h3>Panini Bambino</h3>
+            <p>Nutella, banană, sos caramel.</p>
+            <p class="price">90 Lei</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="images/photo3.jpg" alt="Panini Bambino">
+          <div class="menu-card-content">
+            <h3>Panini Capri</h3>
+            <p>Bresaola, straciatella, roșii uscate în ulei , verdeață.</p>
+            <p class="price">100 Lei</p>
+          </div>
+        </div>
+
         
       </div>
-          <h3>Program & Contact</h3>
-          <p>Adresa: Str. Exemplu, Ialoveni</p>
-          <p>Telefon: <a href="tel:+37300000000">+373 00 000 000</a></p>
     </section>
 
-    <section id="contact" class="section container">
-      <h2>Contact & Feedback</h2>
-      <form id="feedback-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-        <p><strong>Email: </strong>coffeegarden@gmail.com</p>
-        <p><strong>Număr de telefon: </strong><a href="tel:+373 66600099">+373 66600099</a></p>
-        <div class="form-row">
-          <button type="button" id="mailto-btn" class="btn secondary">Trimite un feedback</button>
+
+      <!-- ==================== DESERTURI ==================== -->
+<section id="deserturi" class="menu-section">
+  <h2>Deserturi</h2>
+
+  <div class="menu-grid">
+
+     <div class="menu-card">
+          <img src="images/tiramisu.jpg" alt="Tiramisu">
+          <div class="menu-card-content">
+            <h3>Tiramisu</h3>
+            <p class="price">50 Lei</p>
+          </div>
         </div>
-      </form>
-    </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="year"></span> Panini Arthuro — Toate drepturile rezervate</p>
-      <p><a href="#top">Sus ↑</a></p>
+        <div class="menu-card">
+          <img src="images/tiramisu.jpg" alt="Tiramisu">
+          <div class="menu-card-content">
+            <h3>Tiramisu</h3>
+            <p class="price">50 Lei</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="images/tiramisu.jpg" alt="Tiramisu">
+          <div class="menu-card-content">
+            <h3>Tiramisu</h3>
+            <p class="price">50 Lei</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="images/tiramisu.jpg" alt="Tiramisu">
+          <div class="menu-card-content">
+            <h3>Tiramisu</h3>
+            <p class="price">50 Lei</p>
+          </div>
+        </div>
+
+  </div>
+</section>
+
+
+
+    <!-- ================= BĂUTURI ================= -->
+    <section id="bauturi" class="menu-section">
+      <h2>Băuturi fierbinți</h2>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="menu-card-content"><h3>Esspresso 30 ml</h3><p>Decaf. - 29 Lei</p><p class="price">27 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Cappuccino 180 ml</h3><p>decaf. - 37 Lei</p><p class="price">35 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Latte 300 ml</h3><p>decaf. - 39 Lei</p><p class="price">37 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Esspresso Machiato 40 ml</h3><p>decaf. - 35 Lei</p><p class="price">33 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Esspresso Doppio 50 ml</h3><p>decaf. - 42 Lei</p><p class="price">40 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Americano</h3><p>decaf. - 29 Lei</p><p class="price">27 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Ristretto</h3><p>decaf. - 29 Lei</p><p class="price">27 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Flat White 180 ml</h3><p class="price">50 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Ceai infuzie 300 ml</h3><p>(Verde, Ierburi, Negru, Fructe)</p><p class="price">29 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Ceai fructe naturale 1 l</h3><p>(Cătina, Mix fructe de pădure)</p><p class="price">60 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Ceai fructe naturale 330 ml</h3><p>(Cătina, Mix fructe de pădure)</p><p class="price">28 Lei</p></div></div>
+      </div>
+        <h2>Soft Drinks</h2>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="menu-card-content"><h3>Gin Tonic 300 ml</h3><p class="price">85 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Aperol Spritz 300 ml</h3><p class="price">90 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Prosecco la pahar 150 ml</h3><p class="price">45 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Limonadă clasică 250 ml</h3><p class="price">50 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Limonadă căpșuni și cocos <br>250 ml</h3><p class="price">50 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Limonadă mango și maracuia <br>250 ml</h3><p class="price">50 Lei</p></div></div>
+      </div>
+        <h2>Băuturi nealcoolice la sticlă</h2>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="menu-card-content"><h3>Coca-Cola 250 ml</h3><p>Coca-Cola Zero 250 ml</p><p class="price">25 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Fanta 250 ml</h3><p class="price">25 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Sprite 250 ml</h3><p class="price">25 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Fuzetea piersică 500 ml</h3><p class="price">25 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Fuzetea fructe de pădure <br>500 ml</h3><p class="price">30 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Fuzetea afine 500 ml</h3><p class="price">30 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Burn 250 ml</h3><p class="price">35 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Cappy Pulpy Piersici <br>330 ml</h3><p class="price">30 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Cappy Pulpy Grapefruit <br>330 ml</h3><p class="price">30 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Cappy Pulpy Portocală <br>330 ml</h3><p class="price">30 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Cappy Mini 250 ml</h3><p class="price">25 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Schweppes Mojito <br>250 ml</h3><p class="price">25 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Schweppes Pink Tonic <br>250 ml</h3><p class="price">25 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Schweppes Indian Tonic <br>250 ml</h3><p class="price">25 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>San Benedetto 500 ml</h3><p>Plată / Minerală</p><p class="price">20 Lei</p></div></div>
+      </div>
+        <h2>Băuturi alcoolice la sticlă</h2>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="menu-card-content"><h3>Prosecco DOG 0.75L</h3><p class="price">190 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Prosecco Picini 0.75L</h3><p class="price">250 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Birra Moretti 0.3L</h3><p class="price">50 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Corona Extra 0.3L</h3><p class="price">50 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Corona Cero 0.3L</h3><p class="price">50 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Peroni 0.3L</h3><p class="price">50 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Vin roșu Il Palazzo - Chianti 0.75L</h3><p class="price">250 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Asti Martini 0.75L</h3><p class="price">300 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Prosecco Flumen Extra Dry 0.75L</h3><p class="price">200 Lei</p></div></div>
+        <div class="menu-card"><div class="menu-card-content"><h3>Prosecco Maestro 1.5L</h3><p class="price">500 Lei</p></div></div>
+      </div>
+    </section>
+
+    <!-- ================= PRODUSE ITALIENE ================= -->
+    <section id="produse-italiene" class="menu-section">
+      <h2>Produse Italiene</h2>
+      <div class="menu-grid">
+
+        <div class="menu-card">
+          <img src="images/diparma.jpg" alt="Prosciutto di Parma">
+          <div class="menu-card-content">
+            <h3>Prosciutto di Parma</h3>
+            <p>Preț per 100 gr</p>
+            <p class="price">69.00 Lei</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="images/didolcelucia.jpg" alt="Prosciutto di Dolce Lucia">
+          <div class="menu-card-content">
+            <h3>Prosciutto di Dolce Lucia</h3>
+            <p>Preț per 100 gr</p>
+            <p class="price">54.60 Lei</p>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+
+<!-- ==================== ALTE PRODUSE ITALIENE ==================== -->
+<section id="alte-produse" class="menu-section">
+  <h2>Alte produse</h2>
+
+  <div class="menu-grid">
+
+    <!-- === TRUFE ȘI SPECIALITĂȚI === -->
+    <div class="menu-card"><div class="menu-card-content"><h3>Trufe negre</h3><p>30 gr</p><p class="price">255 Lei</p></div></div>
+    <div class="menu-card"><div class="menu-card-content"><h3>Carpaccio din trufe</h3><p>80 gr</p><p class="price">465 Lei</p></div></div>
+    
+  </div>
+</section>
+
+
+
+    <!-- ================= LOCAȚIE ================= -->
+    <section id="locatie" class="menu-section">
+      <h2>Locație</h2>
+      <div style="margin:12px 0;">
+        <iframe
+          title="Harta Coffee Garden"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2223.428058606484!2d28.77090171532653!3d46.94498190000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97f0035ca3ad5%3A0x9b4ac11823aefc2d!2sCoffee%20Garden!5e0!3m2!1sro!2smd!4v1700XXXXXXXXX!5m2!1sro!2smd"
+          width="100%" height="320" style="border:0;border-radius:8px;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+      <p><strong>Adresă:</strong> Bulevardul Alexandru cel Bun, Ialoveni, Republica Moldova</p>
+      <p><a href="https://www.google.com/maps/search/?api=1&query=Panini+da+Arthuro+Hîncești" target="_blank" rel="noopener">Deschide în Google Maps</a></p>
+    </section>
+
+  
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="menu-section">
+      <h2>Contact și program</h2>
+      <p><strong>Adresă:</strong> Bulevardul Alexandru cel Bun, Ialoveni, Republica Moldova</p>
+      <p><strong>Telefon:</strong> +373 00000000</p>
+      <p><strong>Program:</strong> Luni, 08:00 – 15:30</p>
+      <p> Marți – Duminică, 08:00 – 21:00</p>
+      <a href="https://www.instagram.com/paninidaarthuro/" class="btn">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=61575091597043" class="btn">Facebook</a>
+      <a href="https://www.tiktok.com/@panini.da.arthuro" class="btn">TikTok</a>
+    </section>
+
+    <!-- ================= RECENZII ================= -->
+    <section id="recenzii" class="menu-section">
+      <h2>Trimite un feedback</h2>
+      <p>Dacă ai sugestii pentru îmbunătățirea localului sau a meniului nostru, ne poți scrie direct:</p>
+      <p><strong>Email:</strong> darhuro@gmail.com</p>
+      <a href="mailto:darhuro@gmail.com?subject=Recenzie%20Panini%20da%20Arthuro&body=Bună%20ziua%2C%20aș%20dori%20să%20las%20o%20recenzie%3A" class="btn">✉️ Trimite feedback-ul tău</a>
+    </section>
+
+
+</main>
+
+  <!-- Buton SUS -->
+  <button id="scrollTopBtn" title="Înapoi sus">↑</button>
+
+  <script>
+    // Buton scroll top vizibil când se derulează
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = () => {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        scrollBtn.style.display = "block";
+        scrollBtn.style.opacity = "1";
+      } else {
+        scrollBtn.style.opacity = "0";
+        scrollBtn.style.display = "none";
+      }
+    };
+
+    // Scroll la începutul paginii
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: "0", behavior: "smooth" });
+    });
+  </script>
+
+  <!-- FOOTER -->
+  <footer style="background:#64794f;color:white;padding:15px;text-align:center;margin-top:20px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+      <div>© <strong>Panini da Arthuro</strong> — Designed by Antonin.</div>
+      <div>
+        <p>Designer site - balanantonin8@gmail.com</p>
+      </div>
     </div>
   </footer>
 
-  <!-- Lightbox simplu -->
-  <div id="lightbox" class="lightbox" aria-hidden="true">
-    <button id="lb-close" class="lb-close">✕</button>
-    <img id="lb-img" alt="">
-  </div>
+<script>
+  // Smooth scroll animat pentru link-urile din meniu
+  document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+    link.addEventListener("click", function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      if (!target) return;
+      const topPos = target.offsetTop - 40;
+      window.scrollTo({ top: topPos, behavior: "smooth" });
+    });
+  });
+</script>
 
-  <script src="script.js"></script>
+
+
 </body>
 </html>
